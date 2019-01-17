@@ -1,0 +1,62 @@
+.container-fluid{
+    display: inline-block;
+    justify-content: center;
+    width: 1170px;
+    margin: 50px 50px;
+    
+   
+}
+body{
+    
+
+    background-image: url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 1258px;
+}
+.header .navbar .logo a{
+    float: left;
+    font-family: 'Montez', cursive;
+    font-size: 100px;
+    text-decoration: none;
+    color: #FFF;
+    
+    padding: 0;
+    margin: 0;
+}
+.header .navbar .menu{
+    float: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    margin-top: 50px;
+
+    
+}
+.header .navbar .menu ul{
+    list-style: none;
+    padding: 0;
+    margin :0;
+    
+}
+.header .navbar .menu ul li{
+    display: inline-block;
+    margin: 0 25px;
+    
+}
+.header .navbar .menu ul li a{
+    text-decoration: none;
+    color : #FFF;
+    
+}
+.container{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+ .container .img-resize{
+    
+    width: 600px;
+    height: auto;
+}
