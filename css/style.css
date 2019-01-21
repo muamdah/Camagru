@@ -1,11 +1,4 @@
-.container-fluid{
-    display: inline-block;
-    justify-content: center;
-    width: 1170px;
-    margin: 50px 50px;
-    
-   
-}
+
 .middle{
     display: flex;
     flex-wrap: wrap;
@@ -17,7 +10,10 @@ body{
     background-image: url("../img/bg.jpg");
     background-repeat: no-repeat;
     background-size: 100% 1258px;
-}
+} 
+/* --------------------------------------------------------------------- */
+/* ---                          header                               --- */
+/* --------------------------------------------------------------------- */
 .header .navbar .logo a{
     display: flex;
     flex-direction: row;
@@ -53,6 +49,9 @@ body{
     color : #FFF;
     
 }
+/* --------------------------------------------------------------------- */
+/* ---                          container                            --- */
+/* --------------------------------------------------------------------- */
 .container{
     justify-content: space-evenly;
     margin-top: 20px;
@@ -66,4 +65,12 @@ body{
     
     width: 600px;
     height: auto;
+}
+.container-fluid{
+    display: inline-block;
+    justify-content: center;
+    width: 1170px;
+    margin: 50px 50px;
+    
+   
 }

@@ -1,3 +1,7 @@
+<?php
+        include('server.php');
+
+?>
 <!DOCTYPE html>
     <header>
         <meta charset="utf-8">
@@ -10,11 +14,11 @@
                 <div class ="container-fluid">
                     <div class ="navbar">
                         <div class="logo">
-                            <h1><a href="../index.html">Camagru</a></h1>
+                            <h1><a href="../index.php">Camagru</a></h1>
                         </div>
                         <div class ="menu">
                             <ul>
-                                <li> <a href="./inscription.html">Inscription</a></li>
+                                <li> <a href="./inscription.php">Inscription</a></li>
                             </ul>
                         </div>
                         <div class="clearfix"></div>
