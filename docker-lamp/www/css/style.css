@@ -1,0 +1,93 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+.middle{
+    display: flex;
+    flex-wrap: wrap;
+
+    flex-direction: column;
+    color: #FFF;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 2000px;
+} 
+/* --------------------------------------------------------------------- */
+/* ---                          header                               --- */
+/* --------------------------------------------------------------------- */
+.header .navbar .logo a{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-family: 'Montez', cursive;
+    font-size: 120px;
+    text-decoration: none;
+    color: #FFF;
+    padding: 0;
+    margin: 0;
+}
+.header .navbar .menu{
+    float: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    margin-top: 50px;
+
+    
+}
+.header .navbar .menu ul{
+    list-style: none;
+    padding: 0;
+    margin :0;
+    
+}
+.header .navbar .menu ul li{
+    display: inline-block;
+    margin: 0 25px;
+    
+}
+.header .navbar .menu ul li a{
+    text-decoration: none;
+    color : #FFF;
+    
+}
+/* --------------------------------------------------------------------- */
+/* ---                          container                            --- */
+/* --------------------------------------------------------------------- */
+.container{
+    justify-content: space-evenly;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+}
+ .container .img-resize{
+    
+    width: 600px;
+    height: auto;
+}
+.container-fluid{
+    display: inline-block;
+    justify-content: center;
+    width: 1170px;
+    margin: 50px 50px;
+    
+   
+}
+
+/* --------------------------------------------------------------------- */
+/* ---                            footer                             --- */
+/* --------------------------------------------------------------------- */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: #313342;
+    color: #FFFFFF;
+}
