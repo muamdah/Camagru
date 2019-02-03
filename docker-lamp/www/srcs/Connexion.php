@@ -1,4 +1,53 @@
+<?php
+session_start();
+$dsn = "mysql:host=db;dbname=myDb;charset=utf8mb4";
+$options =[
+  PDO::ATTR_EMULATE_PREPARES   => false,
+  PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,];
+try{
+  $bdd = new PDO($dsn, "user", "test", $options);
+}
 
+catch (Exception $e) {
+  error_log($e->getMessage());
+  exit('Something weird happened');}
+if(isset($_POST['submit']))
+{
+    $Email = htmlspecialchars($_POST['Emailconnect']);
+    $mdp = sha1($_POST['Passwordconnect']);
+    if(!empty($Email) AND !empty($mdp))
+    {
+        if(filter_var($Email, FILTER_VALIDATE_EMAIL))
+        {
+            $requser = $bdd->prepare("SELECT * FROM USER WHERE Email = ? AND Password = ?");
+            $requser->execute(array($Email, $mdp));
+            $Userexist = $requser->rowcount();
+            if($Userexist == 1)
+            {
+                $Userinfo = $requser->fetch();
+                $_SESSION['id'] = $Userinfo['id'];
+                $_SESSION['FirstName'] = $Userinfo['FirstName'];
+                $_SESSION['Email'] = $Userinfo['Email'];
+                $_SESSION['Name'] = $Userinfo['Name'];
+                header('Location: ./profil.php?id='.$_SESSION['id']);
+            }
+            else
+            {
+                $erreur = "Address mail ou mot de passe incorrect";
+            }
+        }
+        else
+        {
+            $erreur = "Veuillez inserez une adresse valide !";
+        }
+    }
+    else
+    {
+        $erreur = "Veuillez inserez tous les champs !";
+    }
+}
+?>
 <!DOCTYPE html>
     <header>
         <meta charset="utf-8">
@@ -18,28 +67,37 @@
                                 <li> <a href="./inscription.php">Inscription</a></li>
                             </ul>
                         </div>
-                        <div class="clearfix"></div>
+                     
                     </div>
                 </div>
             </div>
             <div class ="container">
                 <h1 class ="middle">Connexion</h1>
-                <form>
+                <form method="POST" action="">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <label for="exampleInputEmail1">Addresse Email</label>
+                        <input type="email" class="form-control" name="Emailconnect" aria-describedby="emailHelp" placeholder="Enter email">
+                        
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <label for="exampleInputPassword1">Mot de passe</label>
+                        <input type="password" class="form-control" name="Passwordconnect" placeholder="Password">
                       </div>
-                      <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-secondary" name="submit">Validez</button>
                 </form>
+                <?php
+                if(isset($erreur))
+                {
+                    echo '<font color="yellow">'.$erreur.'</font>';
+                }
+                ?>
             </div>
     
-        </body>
+       
+        <footer class="footer">
+            <div class="container">
+                <div class="col-md-12">© 2018 Copyright</div>
+            </div>
+        </footer>
+    </body>
+</html>

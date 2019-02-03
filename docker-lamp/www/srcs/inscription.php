@@ -33,8 +33,6 @@ if(isset($_POST['submit']))
                 $Emailexist = $reqmail->rowcount();
                 if($Emailexist == 0)
                 {
-
-                
                     if($mdp == $mdp2)
                     {
                         $insert = $bdd->prepare("INSERT INTO USER(FirstName, Name, Email, Password) VALUES(?, ?, ?, ?)");
@@ -90,7 +88,7 @@ if(isset($_POST['submit']))
                         <li> <a href="./Connexion.php">Connexion</a></li>
                     </ul>
                 </div>
-                <div class="clearfix"></div>
+                
             </div>
         </div>
     </div>
@@ -100,13 +98,13 @@ if(isset($_POST['submit']))
                 <!----------------------------------------       PRENOM         ----------------------------------------->
                 <div class="col-md-6 mb-3">
                     <label for="validationServer01">Prénom</label>
-                    <input type="text" class="form-control is-valid" name="FirstName" placeholder="Prénom" required>
+                    <input type="text" class="form-control" name="FirstName" placeholder="Prénom" required>
                 
                 </div>
                  <!----------------------------------------   NOM DE FAMILLE     ----------------------------------------->
                     <div class="col-md-6 mb-3">
                     <label for="validationServer02">Nom</label>
-                    <input type="text" class="form-control is-valid" name="Name" placeholder="Nom" required>
+                    <input type="text" class="form-control" name="Name" placeholder="Nom" required>
                 </div>
                  <!----------------------------------------     PSEUDO USERMANE    ----------------------------------------->
                 
@@ -115,29 +113,38 @@ if(isset($_POST['submit']))
              <!------------------------------------------      ADDRESSE EMAIL        -------------------------------------->
                 <div class="col-md-12 mb-3">
                     <label for="validationServer03">Email</label>
-                    <input type="text" class="form-control is-invalid" name="Email" placeholder="Email@domain.com" required>
+                    <input type="text" class="form-control" name="Email" placeholder="Email@domain.com" required>
                 </div>
             </div>
             <div class="form-row">
              <!--------------------------------------------     PASSWORD    ------------------------------------------------->
                 <div class="col-md-6 mb-3">
                     <label for="validationServer03">Creer votre mot de passe</label>
-                    <input type="text" class="form-control is-invalid" name="Password" placeholder="Mot de passe" required>
+                    <input type="text" class="form-control" name="Password" placeholder="Mot de passe" required>
                 </div> 
              <!----------------------------------------   CONFIRMATION PASSWORD   ----------------------------------------->
                 <div class="col-md-6 mb-3">
-                    <label for="validationServer03">Confirmation mot de passe</label>
-                    <input type="text" class="form-control is-invalid" name="Password2" placeholder="Mot de passe" required>
+                    <label for="validationServer03">Confirmation</label>
+                    <input type="text" class="form-control" name="Password2" placeholder="Mot de passe" required>
                 </div>   
             </div>
            
-            <button class="btn btn-primary" type="submit" name="submit">Submit form</button>
+            <button class="btn btn-secondary" type="submit" name="submit">Submit form</button>
         </form>
-    <?php
-    if(isset($erreur))
-    {
-        echo '<font color="yellow">'.$erreur.'</font>';
-    }
-    ?>
+        <?php
+        if(isset($erreur))
+        {
+            echo '<font color="yellow">'.$erreur.'</font>';
+        }
+        ?>
     </div>
+
+<footer class="footer">
+  <div class="container">
+       <div class="col-md-12">
+                © 2018 Copyright
+       </div>
+  </div>
+</footer>
 </body>
+</html>

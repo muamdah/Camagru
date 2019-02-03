@@ -11,7 +11,7 @@ session_start();
     </header>
     <body>
         <div class="header">
-            <div class ="container-fluid">
+          
                 <div class ="navbar">
                     <div class="logo">
                         <h1><a href="./index.php">Camagru</a></h1>
@@ -21,16 +21,15 @@ session_start();
                             <li> <a href="./srcs/inscription.php">Inscription</a></li>
                         </ul>
                     </div>
-                    <div class="clearfix"></div>
+                
                 </div>
-            </div>
+            
         </div>
         <div class ="container">
             <div class="middle">
-                <h1>Connectez-vous !</h1>
                 <a  href="./srcs/Connexion.php">
-                <button class="btn btn-primary" type="submit"><span class="lnr lnr-earth" ></span></button>
-                    </a>
+                <button class="btn btn-secondary btn-lg" type="submit"class="lnr lnr-earth" > Connectez-vous !</button>
+                </a>
             </div>
             <div>
             <img src ="./img/phone.png" class ="img-resize">
@@ -44,13 +43,9 @@ session_start();
     <!-- Footer -->
   
 <footer class="footer">
-  <div class="container">
-    <div class="row">
-       <div class="col-md-12">
-                © 2018 Copyright
-       </div>
+    <div class="container">
+        <div class="col-md-12">© 2018 Copyright</div>
     </div>
-  </div>
 </footer>
 </body>
 </html>
