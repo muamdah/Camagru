@@ -95,9 +95,7 @@ if(isset($_POST['submit']))
     
        
         <footer class="footer">
-            <div class="container">
-                <div class="col-md-12">© 2018 Copyright</div>
-            </div>
+            <div class="container col-md-12">© 2018 Muamdah</div>
         </footer>
     </body>
 </html>

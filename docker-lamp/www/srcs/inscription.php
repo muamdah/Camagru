@@ -120,12 +120,12 @@ if(isset($_POST['submit']))
              <!--------------------------------------------     PASSWORD    ------------------------------------------------->
                 <div class="col-md-6 mb-3">
                     <label for="validationServer03">Creer votre mot de passe</label>
-                    <input type="text" class="form-control" name="Password" placeholder="Mot de passe" required>
+                    <input type="password" class="form-control" name="Password" placeholder="Mot de passe" required>
                 </div> 
              <!----------------------------------------   CONFIRMATION PASSWORD   ----------------------------------------->
                 <div class="col-md-6 mb-3">
                     <label for="validationServer03">Confirmation</label>
-                    <input type="text" class="form-control" name="Password2" placeholder="Mot de passe" required>
+                    <input type="password" class="form-control" name="Password2" placeholder="Mot de passe" required>
                 </div>   
             </div>
            
@@ -140,11 +140,7 @@ if(isset($_POST['submit']))
     </div>
 
 <footer class="footer">
-  <div class="container">
-       <div class="col-md-12">
-                © 2018 Copyright
-       </div>
-  </div>
+  <div class="container col-md-12">© 2018 Muamdah</div>
 </footer>
 </body>
 </html>

@@ -86,7 +86,7 @@ body{
 }
 .center{
     margin-inline-start: 40px;
-    margin-top: 20px;
+    margin-top: 40px;
     font-family: 'Montserrat', sans-serif;
     color : rgb(137, 195, 241);
 }
@@ -98,7 +98,7 @@ body{
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 100px;
+    height: 70px;
     background: #313342;
     color: #FFFFFF;
 }
