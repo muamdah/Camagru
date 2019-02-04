@@ -18,6 +18,21 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
     $requser = $bdd->prepare("SELECT * FROM USER WHERE id = ?");
     $requser->execute(array($getid));
     $Userinfo = $requser->fetch();
+    if(isset($_POST['submit']))
+    {
+        if($_POST['modif_mdp'] && $_POST['modif_mdp'] == $_POST['confirm_modif_mdp'])
+        {
+            $user_id = $Userinfo['id'];
+            $new_mdp = sha1($_POST['modif_mdp']);
+            $req = $bdd->prepare('UPDATE USER SET Password = ? WHERE id = ?');
+            $req->execute([$new_mdp, $user_id]);
+            $_SESSION['flash']['success'] = "Le mots de passe a été modifié";
+        }
+        else
+        {
+            $_SESSION['flash']['danger'] = "Les mots de passes ne correspondent pas";
+        }
+    }
 ?>
 <!DOCTYPE html>
     <header>
@@ -48,10 +63,21 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                     <h5>
                     Nom : <?php echo $Userinfo['Name'] ?> <br />
                     Prénom : <?php echo $Userinfo['FirstName'] ?> <br />
-                    addresse Email : <?php echo $Userinfo['Email'] ?> <br />
-                    <button class="btn btn-secondary btn-sm">Changez votre mot de passe</button>
+                    Addresse Email : <?php echo $Userinfo['Email'] ?> <br /><br /><br />
+                    <input type="password" class="form-control" name="modif_mdp" placeholder="Nouveau Mot de passe" ><br />
+                    <input type="password" class="form-control" name="confirm_modif_mdp" placeholder="Confirmez Mot de passe" ><br />
+                    <button class="btn btn-secondary btn-sm" name="submit">Changez votre mot de passe</button>
                     </h5>
                 </div>
+                <?php
+                if(isset($_SESSION['flash']))
+                {
+                    foreach ($_SESSION['flash'] as $type => $message) {
+                    echo '<font class="container">'.$message.'<br /></font>';
+                    }
+                    unset($_SESSION['flash']);
+                }
+                ?>
         </div>
     </body>
     <!-- Footer -->
@@ -68,6 +94,6 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
 }
 else
 {
-    header('Location: ,,/index.php');
+    header('Location: ../index.php');
 }
 ?>

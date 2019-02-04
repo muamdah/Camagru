@@ -20,21 +20,31 @@ if(isset($_POST['submit']))
     {
         if(filter_var($Email, FILTER_VALIDATE_EMAIL))
         {
-            $requser = $bdd->prepare("SELECT * FROM USER WHERE Email = ? AND Password = ?");
-            $requser->execute(array($Email, $mdp));
+            $requser = $bdd->prepare("SELECT * FROM USER WHERE Email = ? AND Password = ? AND confirm_at = ?");
+            $requser->execute(array($Email, $mdp, $confirm));
             $Userexist = $requser->rowcount();
-            if($Userexist == 1)
+            $Userinfo = $requser->fetch();
+            echo "errre".$Userexist['confirm_at'];
+            if($Userexist['confirm_at'] != NULL)
             {
-                $Userinfo = $requser->fetch();
-                $_SESSION['id'] = $Userinfo['id'];
-                $_SESSION['FirstName'] = $Userinfo['FirstName'];
-                $_SESSION['Email'] = $Userinfo['Email'];
-                $_SESSION['Name'] = $Userinfo['Name'];
-                header('Location: ./profil.php?id='.$_SESSION['id']);
+                if($Userexist == 1)
+                {
+                    
+                    $_SESSION['id'] = $Userinfo['id'];
+                    $_SESSION['FirstName'] = $Userinfo['FirstName'];
+                    $_SESSION['Email'] = $Userinfo['Email'];
+                    $_SESSION['Name'] = $Userinfo['Name'];
+                    header('Location: ./profil.php?id='.$_SESSION['id']);
+                }
+                else
+                {
+                    $erreur = "Address mail ou mot de passe incorrect";
+                
+                }
             }
             else
             {
-                $erreur = "Address mail ou mot de passe incorrect";
+                $erreur = "Veuillez valider votre compte !";
             }
         }
         else
@@ -88,7 +98,7 @@ if(isset($_POST['submit']))
                 <?php
                 if(isset($erreur))
                 {
-                    echo '<font color="yellow">'.$erreur.'</font>';
+                    echo '<font class="container">'.$erreur.'</font>';
                 }
                 ?>
             </div>

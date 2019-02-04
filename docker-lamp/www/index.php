@@ -36,7 +36,15 @@ session_start();
                 </div>
 
         </div>
-
+        <?php
+        if(isset($_SESSION['flash']))
+        {
+            foreach ($_SESSION['flash'] as $type => $message) {
+            echo '<font class="container">'.$message.'<br /></font>';
+            }
+            unset($_SESSION['flash']);
+        }
+        ?>
 
 
     </body>

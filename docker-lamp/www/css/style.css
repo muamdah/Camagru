@@ -86,9 +86,10 @@ body{
 }
 .center{
     margin-inline-start: 40px;
+    margin-inline-end: 40px;
     margin-top: 40px;
     font-family: 'Montserrat', sans-serif;
-    color : rgb(137, 195, 241);
+    color : rgb(201, 203, 204);
 }
 /* --------------------------------------------------------------------- */
 /* ---                            footer                             --- */
